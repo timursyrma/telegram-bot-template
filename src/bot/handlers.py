@@ -7,5 +7,5 @@ async def start(message: Message):
     await message.answer("Hello World!")
 
 
-def register_handlers(dp: Dispatcher):
+def setup_handlers(dp: Dispatcher):
     dp.message.register(start, CommandStart())

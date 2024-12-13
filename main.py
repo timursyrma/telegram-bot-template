@@ -1,13 +1,11 @@
-import asyncio
-from src.bot.main import start_bot
-from src.backend.main import start_backend
+import uvicorn
+from src.backend.main import create_app
+from src.bot.main import setup_bot
+from src.config.app_config import settings
 
 
-async def main():
-    bot_task = asyncio.create_task(start_bot())
-    backend_task = asyncio.create_task(start_backend())
-    await asyncio.gather(bot_task, backend_task)
-
+app = create_app()
+setup_bot(app)
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    uvicorn.run(app, host=settings.app_host, port=settings.app_port)

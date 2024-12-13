@@ -2,7 +2,7 @@ from aiogram import BaseMiddleware, Dispatcher
 from aiogram.types import Message
 from typing import Callable, Awaitable, Any
 
-from src.backend.models import User
+from src.models.models import User
 
 
 class UserMiddleware(BaseMiddleware):
